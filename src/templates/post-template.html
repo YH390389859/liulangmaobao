@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{post_title}}</title>
+  <style>
+    body {
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header {
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .post-meta {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .post-meta span {
+      margin: 0 10px;
+    }
+    .post-content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+    .post-tag {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #666;
+      padding: 3px 8px;
+      margin-right: 5px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+    .post-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #eaeaea;
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+    }
+    /* 移动设备适配 */
+    @media (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 24px;
+      }
+    }
+    /* 为帖子内容保留原始样式 */
+    .PostStream, .Post {
+      /* 保留原始样式 */
+    }
+  </style>
+  <link rel="stylesheet" href="./assets/css/forum.css">
+  <link rel="preload" href="./assets/font/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="./assets/font/fa-regular-900.woff2" as="font" type="font/woff2" crossorigin="">
+  <style id="bt-default-injected-css">
+    [bt-global-status="dual"]
+      [bt-translate-status]:not([bt-translate-status="translated"])
+      .bt-copied-node-wrapper {
+      display: none !important;
+    }
+
+    .bt-global-loading {
+      display: inline-block !important;
+      width: 12px !important;
+      height: 12px !important;
+      border: 2px solid #f3f3f3;
+      border-top: 1px solid #aaa;
+      border-radius: 50%;
+      animation: bt-global-spin 1s linear infinite;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    @keyframes bt-global-spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .bt-error-wrapper {
+      position: relative;
+      display: inline-flex;
+      padding: 6px;
+      margin: 0 8px;
+      white-space: nowrap;
+      font-size: 16px;
+      align-items: center;
+      color: #00aab5;
+      vertical-align: middle;
+    }
+
+    .bt-error-wrapper font {
+      display: flex;
+      align-items: center;
+      margin: 0 4px;
+      cursor: pointer;
+    }
+
+    .bt-error-wrapper svg {
+      width: 0.8em;
+      height: 0.8em;
+      margin: 0 4px;
+    }
+
+    .bt-global-retry svg:hover {
+      animation: bt-global-spin 1s ease infinite;
+    }
+
+    .bt-block-wrapper {
+      margin: 8px 0 !important;
+      display: inline-block;
+    }
+
+    .bt-inline-wrapper {
+      margin: 0 8px !important;
+    }
+
+    .bt-max-height-unset {
+      max-height: unset !important;
+    }
+
+    .bt-webkit-line-clamp-unset {
+      -webkit-line-clamp: unset !important;
+    }
+
+    :root {
+      --font--dash--border: #59c1bd;
+      --font--underLine-border: #72ece9;
+      --font-marker--bg: 0, 0, 0;
+      --font--blockquote--left--bg: #ff0000;
+      --font--spit--line--border: #000000;
+    }
+
+    .translatedTextContainer {
+      margin: 8px 0 !important;
+      display: inline-block;
+    }
+
+    .fontFamilyDashRest {
+      background: linear-gradient(
+          to right,
+          var(--font--dash--border) 0%,
+          var(--font--dash--border) 50%,
+          transparent 50%,
+          transparent 100%
+        )
+        repeat-x left bottom;
+      background-size: 8px 2px;
+      padding-bottom: 2px;
+    }
+
+    .fontFamilyUnderlineRest {
+      border-bottom: 1px solid var(--font--underLine-border) !important;
+    }
+
+    .fontFamilyMaskRest {
+      filter: blur(5px) !important;
+      transition: filter 0.3s ease !important;
+      border-radius: 10px;
+      display: inline-block;
+    }
+
+    .fontFamilyMaskRest:hover {
+      filter: none !important;
+    }
+
+    .fontFamilySpitLineRest {
+      color: #f50a0a;
+    }
+
+    .fontFamilySpitLineRest::before {
+      content: "";
+      display: block;
+      max-width: 80px;
+      width: 10%;
+      border-top: 1px dashed var(--font--spit--line--border);
+      padding-top: 8px;
+    }
+
+    .fontFamilyMarkerReset {
+      background: linear-gradient(
+        to right,
+        rgba(var(--font-marker--bg), 0.1),
+        rgba(var(--font-marker--bg), 0.9) 3%,
+        rgba(var(--font-marker--bg), 0.9) 35%,
+        rgba(var(--font-marker--bg), 0.9) 70%,
+        rgba(var(--font-marker--bg), 0.8) 95%,
+        rgba(var(--font-marker--bg), 0.3)
+      );
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .fontFamilyBlockQuoteReset {
+      border-left: 4px solid var(--font--blockquote--left--bg) !important;
+      padding-left: 12px !important;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+  </style>
+  <!-- 原站点样式将在此插入 -->
+  {{original_styles}}
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>{{post_title}}</h1>
+      <div class="post-meta">
+        <span class="post-author">作者: {{post_author}}</span>
+        <span class="post-time">时间: {{post_time}}</span>
+        <span class="post-count">共 {{post_count}} 条回复</span>
+      </div>
+      <div class="post-tags">
+        {{post_tags}}
+      </div>
+    </header>
+    
+    <div class="post-content">
+      <!-- 帖子内容将在此插入 -->
+      {{post_content}}
+    </div>
+    
+    <div class="post-footer">
+      <p>抓取时间: {{crawl_time}}</p>
+      <p>由流浪猫窝爬虫自动生成</p>
+    </div>
+  </div>
+</body>
+</html> 

@@ -1,0 +1,22 @@
+{
+  "name": "reptile",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js --openfirst",
+    "fetch": "node src/axios-fetch.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": ["crawler", "puppeteer", "web-scraping"],
+  "author": "",
+  "license": "ISC",
+  "description": "使用无头浏览器访问流浪猫窝网站",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "puppeteer-core": "^22.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
